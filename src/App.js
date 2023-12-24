@@ -22,7 +22,22 @@ function App() {
     }
     return false;
   }
+  const checkForSeven =(text)=>{
+    for(let i=0;i<text.length;i++){
+      if (text.charAt(i)==='7'){
+        return true
+      }
+    }
+    return false
+  }
   const handleSubmit = (search) => {
+    const checkSeven = checkForSeven(search)
+    if (checkSeven){
+      setResult(true)
+      setIsLoading(false)
+      setIsPlaying(true)
+      return 
+    }
     const textOrNumber = containsAlphabets(search)
     if (confirmThala.has(search)) {
       setResult(true)
